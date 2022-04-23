@@ -41,7 +41,9 @@ function repalceImg() {
   const nativeSet = property.set;
 
   function customiseSrcSet(url) {
-    console.log(url);
+    if(url==='https://abs-0.twimg.com/emoji/v2/svg/1f1fa-1f1e6.svg'){
+        console.log('============in')
+    }
     // do something
     nativeSet.call(this, url);
   }
@@ -52,3 +54,6 @@ function repalceImg() {
 if (location.href.startsWith("https://twitter.com")) {
   repalceImg();
 }
+
+// https://abs-0.twimg.com/emoji/v2/svg/1f1fa-1f1e6.svg
+// https://abs-0.twimg.com/emoji/v2/svg/1f1f7-1f1fa.svg
