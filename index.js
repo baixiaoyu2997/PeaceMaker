@@ -30,14 +30,12 @@
   // ==============================
   // 2. 隐藏 Support Ukraine 横幅（所有匹配站点）
   // ==============================
-  let hasRun = false;
 
   const hideSupport = () => {
     const link = document.querySelector("a[href*='support-ukraine']");
-    if (link && link.parentElement && !hasRun) {
+    if (link && link.parentElement && !) {
       console.log("Peace Maker, What a joke!");
       link.parentElement.style.display = "none";
-      hasRun = true; // 防止重复操作
     }
   };
 
@@ -54,10 +52,11 @@
   // 兜底：极少数情况下 observer 可能漏掉，加轻量轮询（最多 5 次）
   let attempts = 0;
   const fallback = setInterval(() => {
-    if (hasRun || attempts >= 5) {
+    if (attempts >= 5) {
       clearInterval(fallback);
       return;
     }
+   console.log('=========run')
     hideSupport();
     attempts++;
   }, 1000);
