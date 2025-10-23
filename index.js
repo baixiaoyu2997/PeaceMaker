@@ -41,6 +41,9 @@
 
   // 立即尝试一次
   hideSupport();
+  setTimeout(()=>{
+      hideSupport()
+  },2000)
 
   // 使用 MutationObserver 监听后续动态插入
   const observer = new MutationObserver(hideSupport);
@@ -52,11 +55,11 @@
   // 兜底：极少数情况下 observer 可能漏掉，加轻量轮询（最多 5 次）
   let attempts = 0;
   const fallback = setInterval(() => {
+    console.log('=========run')
     if (attempts >= 5) {
       clearInterval(fallback);
       return;
     }
-   console.log('=========run')
     hideSupport();
     attempts++;
   }, 1000);
