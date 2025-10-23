@@ -33,7 +33,7 @@
 
   const hideSupport = () => {
     const link = document.querySelector("a[href*='support-ukraine']");
-    if (link && link.parentElement && !) {
+    if (link && link.parentElement) {
       console.log("Peace Maker, What a joke!");
       link.parentElement.style.display = "none";
     }
